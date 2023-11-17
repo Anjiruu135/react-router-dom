@@ -4,13 +4,19 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "concurrently \"npm run start-vite\" \"npm run start-js-server\"",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start-vite": "vite",
+    "start-js-server": "json-server --watch db.json --port 3001"
   },
   "dependencies": {
+    "axios": "^1.6.2",
+    "concurrently": "^8.2.2",
     "formik": "^2.4.5",
+    "json-server": "^0.17.4",
+    "nodemon": "^3.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.18.0",

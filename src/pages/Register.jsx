@@ -1,10 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import { RegisterSchema } from "../Validations/UserValidation.js";
+import getData from '../modules/getData.js';
+import postData from "../modules/postData.js";
+import axios from 'axios';
 
 function Register() {
+  const [data, setData] = useState([])
+
+  useEffect(()=> {
+    const fetchData = async () => {
+      try {
+        const usersData = await getData();
+        setData(usersData);
+      } catch (error) {
+        console.log('Error in fetchData:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const userCount = data.length;
+
   const formik = useFormik({
     initialValues: {
+      id: "",
       name: "",
       username: "",
       email: "",
@@ -15,7 +36,17 @@ function Register() {
     onSubmit: (values) => {
       formik.validateForm().then((errors) => {
         if (Object.keys(errors).length === 0) {
+          values.id = userCount + 1;
           window.alert(`User "${values.username}" Registered Successfully`);
+
+          postData(values)
+          .then(res => {
+            console.log(res);
+          })
+          .catch(error => {
+            console.error(error);
+          });
+
           console.log(values);
         } else {
           const errorMessages = Object.values(errors).join("\n");

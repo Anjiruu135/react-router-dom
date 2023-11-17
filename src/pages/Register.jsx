@@ -3,10 +3,12 @@ import { useFormik } from "formik";
 import { RegisterSchema } from "../Validations/UserValidation.js";
 import getData from '../modules/getData.js';
 import postData from "../modules/postData.js";
-import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function Register() {
   const [data, setData] = useState([])
+
+  const navigate = useNavigate();
 
   useEffect(()=> {
     const fetchData = async () => {
@@ -48,6 +50,7 @@ function Register() {
           });
 
           console.log(values);
+          navigate('/');
         } else {
           const errorMessages = Object.values(errors).join("\n");
           window.alert(`Validation Error:\n${errorMessages}`);

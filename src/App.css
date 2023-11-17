@@ -131,3 +131,14 @@ input:focus{
 .container-box {
   height: 100px;
 }
+
+.delete {
+  background-color: red;
+  color: white;
+  padding: 7.5px;
+  font-size: 12px;
+}
+
+th {
+  width: 200px;
+}

@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import getData from '../modules/getData.js';
+import deleteData from '../modules/deleteData.js'
+import { useNavigate } from 'react-router-dom';
+
 
 function Home() {
   const [data,setData] = useState([])
+  const navigate = useNavigate();
 
   useEffect(()=> {
     const fetchData = async () => {
@@ -32,6 +36,7 @@ function Home() {
               <th>Name</th>
               <th>Email</th>
               <th>Username</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -42,6 +47,7 @@ function Home() {
                     <td>{d.name}</td>
                     <td>{d.email}</td>
                     <td>{d.username}</td>
+                    <td><button className='delete' onClick={e => deleteData(d.id)}>Delete</button></td>
                   </tr>
                 ))
               }

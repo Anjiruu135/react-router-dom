@@ -16,6 +16,8 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Error from './pages/Error';
+import Read from './pages/Read';
+import Update from './pages/Update';
 
 const Dashboard = () => {
   return (
@@ -44,6 +46,16 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,   
+      },
+
+      {
+        path: "/viewuser/:id",
+        element: <Read />,   
+      },
+
+      {
+        path: "/updateuser/:id",
+        element: <Update />,   
       },
     
       {

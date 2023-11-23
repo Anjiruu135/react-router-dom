@@ -132,13 +132,48 @@ input:focus{
   height: 100px;
 }
 
-.delete {
-  background-color: red;
+.homebutton {
   color: white;
   padding: 7.5px;
   font-size: 12px;
+  margin: 0 5px;
+}
+
+.red {
+  background-color: red;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.orange {
+  background-color: orangered;
 }
 
 th {
   width: 200px;
+}
+
+.userlist {
+  border: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.viewusertable {
+  text-align: left;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.userdatahead{
+  width: 100px;
+  padding: 0 25px;
+}
+
+.userdata{
+  width: 150px;
+}
+
+table {
+  margin: 0 auto;
+  padding: 15px;
 }

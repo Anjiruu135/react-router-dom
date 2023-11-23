@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import getData from '../modules/getData.js';
 import deleteData from '../modules/deleteData.js'
-import { useNavigate } from 'react-router-dom';
-
 
 function Home() {
   const [data,setData] = useState([])
-  const navigate = useNavigate();
 
   useEffect(()=> {
     const fetchData = async () => {
@@ -29,7 +26,7 @@ function Home() {
       <h2>Total Users: {userCount}</h2>
       <h2>List of Users</h2>
       <div>
-        <table>
+        <table className='userlist'>
           <thead>
             <tr>
               <th>ID</th>
@@ -47,7 +44,11 @@ function Home() {
                     <td>{d.name}</td>
                     <td>{d.email}</td>
                     <td>{d.username}</td>
-                    <td><button className='delete' onClick={e => deleteData(d.id)}>Delete</button></td>
+                    <td>
+                      <button className='homebutton blue' onClick={() => { window.location.href = `/viewuser/${d.id}` }}>View</button>
+                      <button className='homebutton orange' onClick={() => { window.location.href = `/updateuser/${d.id}` }}>Update</button>
+                      <button className='homebutton red' onClick={e => deleteData(d.id)}>Delete</button>
+                    </td>
                   </tr>
                 ))
               }

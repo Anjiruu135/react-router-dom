@@ -1,20 +1,20 @@
 {
   "users": [
     {
-      "id": 1,
       "name": "Tedd Angelo Gitalan",
       "username": "angelo123",
       "email": "tedd@gmail.com",
       "password": "12345",
-      "confirmpassword": "12345"
+      "confirmpassword": "12345",
+      "id": 1
     },
     {
-      "id": 2,
-      "name": "1234",
+      "name": "12344321",
       "username": "1234",
       "email": "test@test",
       "password": "1234",
-      "confirmpassword": "1234"
+      "confirmpassword": "1234",
+      "id": 2
     }
   ]
 }
